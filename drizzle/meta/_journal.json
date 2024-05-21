@@ -8,6 +8,20 @@
       "when": 1715612654587,
       "tag": "0000_nosy_sprite",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1716203361787,
+      "tag": "0001_unique_shadowcat",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1716283653194,
+      "tag": "0002_chief_wilson_fisk",
+      "breakpoints": true
     }
   ]
 }
