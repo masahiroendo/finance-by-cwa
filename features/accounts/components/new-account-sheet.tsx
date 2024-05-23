@@ -34,7 +34,7 @@ export const NewAccountSheet = () => {
 
   return (
     <Sheet open={isOpen} onOpenChange={onClose}>
-      <SheetContent>
+      <SheetContent className="space-y-4">
         <SheetHeader>
           <SheetTitle>New Account</SheetTitle>
           <SheetDescription>

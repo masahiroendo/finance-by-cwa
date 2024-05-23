@@ -68,7 +68,7 @@ export const EditAccountSheet = () => {
     <>
       <ConfirmDialog />
       <Sheet open={isOpen} onOpenChange={onClose}>
-        <SheetContent>
+        <SheetContent className="space-y-4">
           <SheetHeader>
             <SheetTitle>Edit Account</SheetTitle>
             <SheetDescription>Edit an existing account.</SheetDescription>

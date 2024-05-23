@@ -68,7 +68,7 @@ export const EditCategorySheet = () => {
     <>
       <ConfirmDialog />
       <Sheet open={isOpen} onOpenChange={onClose}>
-        <SheetContent>
+        <SheetContent className="space-y-4">
           <SheetHeader>
             <SheetTitle>Edit Category</SheetTitle>
             <SheetDescription>Edit an existing category.</SheetDescription>
