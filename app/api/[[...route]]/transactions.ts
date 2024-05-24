@@ -185,11 +185,11 @@ const app = new Hono()
         db
           .select({ id: transactions.id })
           .from(transactions)
-          .innerJoin(accounts, eq(transactions.id, accounts.id))
+          .innerJoin(accounts, eq(transactions.accountId, accounts.id))
           .where(
             and(
               inArray(transactions.id, values.ids),
-              eq(accounts.id, auth.userId)
+              eq(accounts.userId, auth.userId)
             )
           )
       );
@@ -237,8 +237,8 @@ const app = new Hono()
         db
           .select({ id: transactions.id })
           .from(transactions)
-          .innerJoin(accounts, eq(transactions.id, accounts.id))
-          .where(and(eq(transactions.id, id), eq(accounts.id, auth.userId)))
+          .innerJoin(accounts, eq(transactions.accountId, accounts.id))
+          .where(and(eq(transactions.id, id), eq(accounts.userId, auth.userId)))
       );
 
       const [data] = await db
@@ -254,7 +254,7 @@ const app = new Hono()
         .returning();
 
       if (!data) {
-        return c.json({ error: "Category not found" }, 404);
+        return c.json({ error: "Transaction not found" }, 404);
       }
 
       return c.json({ data });
@@ -279,8 +279,8 @@ const app = new Hono()
         db
           .select({ id: transactions.id })
           .from(transactions)
-          .innerJoin(accounts, eq(transactions.id, accounts.id))
-          .where(and(eq(transactions.id, id), eq(accounts.id, auth.userId)))
+          .innerJoin(accounts, eq(transactions.accountId, accounts.id))
+          .where(and(eq(transactions.id, id), eq(accounts.userId, auth.userId)))
       );
 
       const [data] = await db
@@ -294,7 +294,7 @@ const app = new Hono()
         });
 
       if (!data) {
-        return c.json({ error: "Category not found" }, 404);
+        return c.json({ error: "Transaction not found" }, 404);
       }
 
       return c.json({ data });
@@ -302,4 +302,3 @@ const app = new Hono()
   );
 
 export default app;
-0;
