@@ -67,7 +67,7 @@ export const TransactionForm = ({
 
   const handleSubmit = (values: FormValues) => {
     const amount = parseFloat(values.amount.replace(",", "."));
-    // TODO: Check for the format of string/number to passed parseFloat method '.replace(","n ".")'
+    // TODO: Check for the format of string/number passed parseFloat method '.replace(","n ".")'
     const amountInMilliUnits = convertAmountToMilliUnits(amount);
     onSubmit({
       ...values,
