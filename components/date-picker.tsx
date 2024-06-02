@@ -40,7 +40,8 @@ export const DatePicker = ({ disabled, onChange, value }: DatePickerProps) => {
           selected={value}
           onSelect={onChange}
           disabled={disabled}
-          initialFocus
+          // initialFocus ca ne fonctionne pas sur firefox avec... à voir par la suite.
+          //
         />
       </PopoverContent>
     </Popover>
