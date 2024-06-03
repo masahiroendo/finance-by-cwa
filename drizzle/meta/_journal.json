@@ -22,6 +22,13 @@
       "when": 1716283653194,
       "tag": "0002_chief_wilson_fisk",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1717342442341,
+      "tag": "0003_opposite_maelstrom",
+      "breakpoints": true
     }
   ]
 }

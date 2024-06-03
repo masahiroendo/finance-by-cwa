@@ -5,9 +5,10 @@ import accounts from "./accounts";
 import categories from "./categories";
 import transactions from "./transactions";
 import summary from "./summary";
+import plaid from "./plaid";
 import { HTTPException } from "hono/http-exception";
 
-export const runtime = "edge";
+export const runtime = "nodejs"; // no fail with "edge" either...
 
 const app = new Hono().basePath("/api");
 
@@ -23,7 +24,8 @@ const routes = app
   .route("/accounts", accounts)
   .route("/categories", categories)
   .route("/transactions", transactions)
-  .route("/summary", summary);
+  .route("/summary", summary)
+  .route("/plaid", plaid);
 
 export const GET = handle(app);
 export const POST = handle(app);
