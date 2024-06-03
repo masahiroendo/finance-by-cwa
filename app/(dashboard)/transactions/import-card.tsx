@@ -1,7 +1,13 @@
 import { useState } from "react";
 import { format, parse } from "date-fns";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { convertAmountToMilliUnits } from "@/lib/utils";
 
@@ -101,10 +107,17 @@ export const ImportCard = ({ data, onCancel, onSubmit }: ImportCardProps) => {
   return (
     <div className="max-w-screen-2xl mx-auto w-full pb-10 -mt-24">
       <Card className="border-none drop-shadwow-sm">
-        <CardHeader className="gap-y-2 md:flex-row md:items-center md:justify-between">
-          <CardTitle className="text-xl line-clamp-1">
-            Import Transaction
-          </CardTitle>
+        <CardHeader className="gap-y-2 md:flex-row md:items-start md:justify-between">
+          <div className="space-y-2">
+            <CardTitle className="text-xl line-clamp-1">
+              Import Transaction
+            </CardTitle>
+            <CardDescription>
+              <div className="text-sm text-muted-foreground">
+                Select at least 3 fields from below to continue
+              </div>
+            </CardDescription>
+          </div>
           <div className="flex flex-col md:flex-row gap-y-2 items-center gap-x-2">
             <Button size="sm" onClick={onCancel} className="w-full md:w-auto">
               Cancel

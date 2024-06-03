@@ -44,7 +44,7 @@ export const PlaidConnect = () => {
       disabled={isDisabled}
       className="text-sm font-medium"
     >
-      Connect
+      {isDisabled ? "Connecting" : "Connect"}
     </Button>
   );
 };
