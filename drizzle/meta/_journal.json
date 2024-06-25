@@ -29,6 +29,13 @@
       "when": 1717342442341,
       "tag": "0003_opposite_maelstrom",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1717451954856,
+      "tag": "0004_jazzy_gladiator",
+      "breakpoints": true
     }
   ]
 }

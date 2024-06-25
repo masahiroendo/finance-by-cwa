@@ -5,6 +5,8 @@ import { Loader2 } from "lucide-react";
 import { PlaidConnect } from "@/features/plaid/components/plaid-connect";
 import { PlaidDisconnect } from "@/features/plaid/components/plaid-disconnect";
 import { useGetConnectedBank } from "@/features/plaid/api/use-get-connected-bank";
+import { SubscriptionCheckout } from "@/features/subscriptions/components/subscription-checkout";
+import { useGetSubscriptions } from "@/features/subscriptions/api/use-get-subscriptions";
 import { cn } from "@/lib/utils";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -15,7 +17,10 @@ export const SettingsCard = () => {
   const { data: connectedBank, isLoading: isLoadingConnectedBank } =
     useGetConnectedBank();
 
-  if (isLoadingConnectedBank) {
+  const { data: subscription, isLoading: isLoadingSubscription } =
+    useGetSubscriptions();
+
+  if (isLoadingConnectedBank || isLoadingSubscription) {
     return (
       <Card className="border-none drop-shadow-md">
         <CardHeader className="text-xl line-clamp-1">
@@ -54,6 +59,25 @@ export const SettingsCard = () => {
                 : "No bank account connected"}
             </div>
             {connectedBank ? <PlaidDisconnect /> : <PlaidConnect />}
+          </div>
+        </div>
+        <Separator />
+        <div className="flex flex-col gap-y-2 lg:flex-row items-center py-4">
+          <p className="text-sm font-medium w-full lg:w-[16.5rem]">
+            Subscription
+          </p>
+          <div className="w-full flex items-center justify-between">
+            <div
+              className={cn(
+                "text-sm truncate flex items-center",
+                !subscription && "text-muted-foreground"
+              )}
+            >
+              {subscription
+                ? `Subscription ${subscription.status}`
+                : "No active subscription"}
+            </div>
+            <SubscriptionCheckout />
           </div>
         </div>
       </CardContent>

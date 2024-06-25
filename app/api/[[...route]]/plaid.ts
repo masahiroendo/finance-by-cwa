@@ -129,7 +129,7 @@ const app = new Hono()
         access_token: connectedBank.accessToken,
       });
 
-      const plaidAccounts = await client.accountsBalanceGet({
+      const plaidAccounts = await client.accountsGet({
         access_token: connectedBank.accessToken,
       });
 
